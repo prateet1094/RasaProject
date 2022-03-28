@@ -1,0 +1,55 @@
+
+stories:
+- story: search for product
+  steps:
+  - intent: greet
+  - action: utter_greet_ask_for_order
+  - intent: search_product
+    entities:
+    - product: "margherita" 
+  - action: action_search_for_products
+  - action: utter_ask_for_more_products
+  - intent: affirm
+  - action: utter_greet_ask_for_order
+
+- story: search for product
+  steps:
+  - intent: greet
+  - action: utter_greet_ask_for_order
+  - intent: search_product
+    entities:
+    - product: "margherita" 
+  - action: action_search_for_products
+  - action: utter_ask_for_more_products
+  - intent: deny
+  - action: utter_thanks
+
+
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet_ask_for_order
+  - intent: search_product
+    entities:
+    - product: margherita pizza
+  - action: action_search_for_products
+  - action: action_revert_fallback_events
+  - intent: search_product
+    entities:
+    - product: pepsi
+  - slot_was_set:
+    - product: pepsi
+  - action: action_search_for_products
+  - action: utter_ask_for_more_products
+  - intent: search_product
+  - action: action_search_for_products
+  - action: utter_ask_for_more_products
+  - intent: search_product
+    entities:
+    - product: coke
+  - slot_was_set:
+    - product: coke
+  - action: action_search_for_products
+  - action: utter_ask_for_more_products

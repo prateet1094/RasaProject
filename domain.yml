@@ -1,0 +1,30 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- affirm
+- deny
+- goodbye
+- greet
+- mood_great
+- mood_unhappy
+- search_product
+entities:
+- product
+slots:
+  product:
+    type: unfeaturized
+    influence_conversation: false
+responses:
+  utter_greet_ask_for_order:
+  - text: Hi!! What would you like to have?
+  utter_greet:
+  - text: Hi
+  utter_goodbye:
+  - text: Bye!!
+  utter_ask_for_more_products:
+  - text: Would you like to add more?
+  utter_thanks:
+  - text: Thanks!! Bye
+actions:
+- action_search_for_products
